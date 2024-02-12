@@ -1,0 +1,17 @@
+#!/bin/bash
+
+# Check if there are at least two arguments
+if [ "$#" -lt 2 ]
+then
+    echo "Usage: $0 <-c|-d> <fileName>"
+    exit 1
+fi
+
+# Check if the first argument is either -c or -d
+if [ "$1" != "-c" ] && [ "$1" != "-d" ]
+then
+    echo "Invalid option. Use -c for compression or -d for decompression."
+    exit 1
+fi
+
+python3 src/huffman/huff.py "$1" "$2"
