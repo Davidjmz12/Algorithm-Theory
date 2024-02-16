@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# Check if there are at least three arguments
+if [ "$#" -lt 2 ]
+then
+    echo "Usage: $0 <input_file> <output_file>"
+    exit 1
+fi
+
+python3 src/search.py "$1" "$2"
