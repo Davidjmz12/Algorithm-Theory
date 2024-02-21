@@ -21,14 +21,8 @@ class Article:
         botLeft = (self.origin[0], self.origin[1] + self.length)
         return Polygon((self.origin, supRight, botRight, botLeft,self.origin))
 
-    def intersects(self, article):
-       return self.polygon.union(article.polygon).area != 0
-
     def area(self):
         return self.polygon.area
-    
-    def intersection_area(self,pol):
-        return self.area() - self.polygon.intersection(pol).area
     
     def to_svg(self, color,opacity):
         return self.polygon.svg(fill_color=color,opacity=opacity)

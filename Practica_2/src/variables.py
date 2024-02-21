@@ -1,27 +1,5 @@
-from shapely.geometry import Polygon
+from functools import reduce
 import random
-
-const_white_color = "#FFFFFF"
-
-def random_color():
-    color = '#'
-    for _ in range(6):
-        color += random.choice('0123456789ABCDEF')
-    return color
-
-def get_union_vector(articles):
-    if len(articles) == 0:
-        return Polygon(((0,0),(0,0),(0,0),(0,0)))
-    else:
-        total_union = articles[0].polygon
-        for article in articles[1:]:
-            total_union = total_union.union(article.polygon)
-        return total_union
-
-def sum_without_intersections(articles, articles_not):
-    total_union = get_union_vector(articles)
-    return sum([article.intersection_area(total_union) for article in articles_not])
-
 
 class Variables:
    
@@ -40,6 +18,14 @@ class Variables:
         self.page = page
     
     def to_svg(self):
+        
+        const_white_color = "#FFFFFF"
+        def random_color():
+            color = '#'
+            for _ in range(6):
+                color += random.choice('0123456789ABCDEF')
+            return color
+
         page_svg = self.page.svg(fill_color=const_white_color,opacity=0.1)
         arts_svg = []
         for art in self.list_art:
@@ -55,15 +41,22 @@ class Variables:
 
     ## to be determined     
     def article_fits(self, article_id, solution):
-        article = self.list_art[article_id]
-        articles = [self.list_art[_] for _ in solution.indexes]
-        return all([not one.intersects(article) for one in articles])
+        
+        if len(solution.indexes)==0:
+            return True
+        else:    
+            article_pol = self.list_art[article_id].polygon
+            articles_pol = [self.list_art[_].polygon for _ in solution.indexes]
+            
+            polygon = reduce(lambda x,y:x.union(y),articles_pol)
+            
+            return polygon.intersection(article_pol).area == 0
     
     def area_article(self, article_id):
         return self.list_art[article_id].area()
     
     def cote(self, solution):
-        articles = [self.list_art[_] for _ in solution.indexes]
-        articles_not = [self.list_art[i] for i in range(0,self.n) if i not in solution.indexes]
-        return sum_without_intersections(articles, articles_not) + solution.totalArea
+        articles_not_pol = [self.list_art[i].polygon for i in range(0,self.n) if (i not in solution.indexes and self.article_fits(i,solution))]
+        
+        return 0 if len(articles_not_pol) == 0 else reduce(lambda x,y:x.union(y),articles_not_pol).area + solution.totalArea
         

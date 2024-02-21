@@ -1,19 +1,3 @@
-class Solutions:
-    
-    def __init__(self):
-        self.solutions = [Solution([],0)]
-    
-    @property
-    def totalArea(self):
-        return self.solutions[0].totalArea
-    
-    def update(self,other_sol):
-        if other_sol > self.solutions[0]:
-            self.solutions = [other_sol]
-        elif other_sol == self.solutions[0]:
-            self.solutions.append(other_sol)
-            
-
 class Solution:
     
     def __init__(self, indexes = [], totalArea = 0):

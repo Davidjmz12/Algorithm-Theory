@@ -1,32 +1,34 @@
-from solution import Solution,Solutions
+from solution import Solution
 from variables import Variables
 
-def backtracking(variable: Variables):
+def backtracking(variable: Variables, avoid_cote=False):
     
-    global bestSolutions
-    bestSolutions = Solutions()
+    global bestSolution
+    global cases
     
+    cases = 0
+    bestSolution = Solution()
     initial_sol = Solution()
 
-    backtracking_r(variable, initial_sol)
+    backtracking_r(variable, initial_sol, avoid_cote)
     
-    return bestSolutions.totalArea
+    return bestSolution.totalArea, cases
 
-def backtracking_r(variables: Variables, thisSol: Solution):
+def backtracking_r(variables: Variables, thisSol: Solution, avoid_cote: bool):
     
-    global bestSolutions
+    global bestSolution
+    global cases
+    cases += 1
     
-    if variables.cote(thisSol) > bestSolutions.totalArea:   
-             
-        for i in range(thisSol.next, variables.n):
+    for i in range(thisSol.next, variables.n):
+        
+        if variables.article_fits(i,thisSol):
             
-            if variables.article_fits(i,thisSol):
+            newSol = Solution(thisSol.indexes+[i], thisSol.totalArea + variables.area_article(i))
+            if newSol > bestSolution:
+                bestSolution = newSol
+            
+            if i < variables.n-1:
+                if avoid_cote or variables.cote(newSol) > bestSolution.totalArea:
+                    backtracking_r(variables, newSol, avoid_cote)
                 
-                newSol = Solution(thisSol.indexes+[i], thisSol.totalArea + variables.area_article(i))
-                
-                if i == variables.n-1:
-                    bestSolutions.update(newSol)
-                else:
-                    backtracking_r(variables, newSol)
-            else:
-                bestSolutions.update(thisSol)

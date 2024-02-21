@@ -20,7 +20,7 @@ def file_to_variables(file_name):
 
             list_art = []
             
-            for i in range(0, n):
+            for _ in range(0, n):
                 line = f.readline()[:-1]
                 one_art_l = [int(_) for _ in line.split(" ")]
                 list_art.append(Article((one_art_l[2],one_art_l[3]), one_art_l[1], one_art_l[0])) 
@@ -32,8 +32,8 @@ def file_to_variables(file_name):
 
 def main():
     
-    file1 = "test/in/test0.txt"
-    file2 = "test/out/test0.txt"
+    file1 = "test/in/test2.txt"
+    file2 = "test/out/test2.txt"
 
     variables = file_to_variables(file1)
 
@@ -45,9 +45,9 @@ def main():
         w_f.write("Results from " + file1 + "\n")
         for variable in variables:
             now = time.time()
-            size = backtracking(variable)
+            size, num_cases = backtracking(variable)
             time_elapsed = time.time()-now
-            w_f.write(f"{size} {time_elapsed}\n")
+            w_f.write(f"{size} {num_cases} {time_elapsed}\n")
             variable.write_svg("svg/_"+str(i)+".svg")
             i+=1
         
