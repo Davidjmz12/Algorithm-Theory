@@ -55,8 +55,11 @@ class Variables:
     def area_article(self, article_id):
         return self.list_art[article_id].area()
     
+    def area_page(self):
+        return self.page.area
+    
     def cote(self, solution):
         articles_not_pol = [self.list_art[i].polygon for i in range(0,self.n) if (i not in solution.indexes and self.article_fits(i,solution))]
         
-        return 0 if len(articles_not_pol) == 0 else reduce(lambda x,y:x.union(y),articles_not_pol).area + solution.totalArea
+        return solution.totalArea if len(articles_not_pol) == 0 else reduce(lambda x,y:x.union(y),articles_not_pol).area + solution.totalArea
         

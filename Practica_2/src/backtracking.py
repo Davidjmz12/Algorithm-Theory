@@ -10,17 +10,20 @@ def backtracking(variable: Variables, avoid_cote=False):
     bestSolution = Solution()
     initial_sol = Solution()
 
-    backtracking_r(variable, initial_sol, avoid_cote)
+    backtracking_r(variable, initial_sol, avoid_cote,variable.area_page())
     
     return bestSolution.totalArea, cases
 
-def backtracking_r(variables: Variables, thisSol: Solution, avoid_cote: bool):
+def backtracking_r(variables: Variables, thisSol: Solution, avoid_cote: bool, cote):
     
     global bestSolution
     global cases
     cases += 1
     
     for i in range(thisSol.next, variables.n):
+        
+        if cote <= bestSolution.totalArea:
+            return
         
         if variables.article_fits(i,thisSol):
             
@@ -29,6 +32,7 @@ def backtracking_r(variables: Variables, thisSol: Solution, avoid_cote: bool):
                 bestSolution = newSol
             
             if i < variables.n-1:
-                if avoid_cote or variables.cote(newSol) > bestSolution.totalArea:
-                    backtracking_r(variables, newSol, avoid_cote)
+                next_cote = variables.cote(newSol)
+                if avoid_cote or cote > bestSolution.totalArea:
+                    backtracking_r(variables, newSol, avoid_cote,next_cote)
                 
