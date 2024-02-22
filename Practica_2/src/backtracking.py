@@ -18,9 +18,9 @@ def backtracking_r(variables: Variables, thisSol: Solution, avoid_cote: bool, co
     
     global bestSolution
     global cases
-    cases += 1
     
     for i in range(thisSol.next, variables.n):
+        cases += 1
         
         if cote <= bestSolution.totalArea:
             return
