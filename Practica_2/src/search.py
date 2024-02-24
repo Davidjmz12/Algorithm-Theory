@@ -32,8 +32,8 @@ def file_to_variables(file_name):
 
 def main():
     
-    file1 = "test/in/test2.txt"
-    file2 = "test/out/test2.txt"
+    file1 = "test/in/test4.txt"
+    file2 = "test/out/test4.txt"
 
     variables = file_to_variables(file1)
 

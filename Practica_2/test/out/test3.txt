@@ -1,0 +1,2 @@
+Results from test/in/test3.txt
+350000.0 42 0.013657808303833008
