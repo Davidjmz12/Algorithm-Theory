@@ -4,11 +4,11 @@
 Given a text file containing the dimensions of a newspaper page and a set of articles with their origin coordinates, height, and width, our goal is to determine the combination of articles that covers the maximum area of the page possible. The algorithm employed for this task is a backtracking algorithm, which systematically explores different combinations of articles to find the optimal arrangement.
 
 ## Table of Contents
-1. [Directory Description](#directory_description)
+1. [Directory Description](#directory-description)
 2. [Installation](#installation)
-3. [Install Dependencies](#install_dependencies)
+3. [Install Dependencies](#install-dependencies)
 4. [Usage](#usage)
-5. [Running_Tests](#running_tests)
+5. [Running Tests](#running-tests)
 
 ## Directory Description
 This project is organized with the following structure:
