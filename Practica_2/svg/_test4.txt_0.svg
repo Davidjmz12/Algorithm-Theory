@@ -1,0 +1,7 @@
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" fill="#FFFFFF" stroke="#000000" stroke-width="2.0" opacity="0.1" d="M 0.0,0.0 L 500.0,0.0 L 500.0,700.0 L 0.0,700.0 L 0.0,0.0 z" />
+<path fill-rule="evenodd" fill="#E975A2" stroke="#000000" stroke-width="2.0" opacity="0.5" d="M 0.0,0.0 L 125.0,0.0 L 125.0,700.0 L 0.0,700.0 L 0.0,0.0 z" />
+<path fill-rule="evenodd" fill="#CC0C22" stroke="#000000" stroke-width="2.0" opacity="0.5" d="M 125.0,550.0 L 500.0,550.0 L 500.0,700.0 L 125.0,700.0 L 125.0,550.0 z" />
+<path fill-rule="evenodd" fill="#368F74" stroke="#000000" stroke-width="2.0" opacity="0.5" d="M 100.0,200.0 L 500.0,200.0 L 500.0,550.0 L 100.0,550.0 L 100.0,200.0 z" />
+<path fill-rule="evenodd" fill="#DCCAAC" stroke="#000000" stroke-width="2.0" opacity="0.5" d="M 0.0,0.0 L 500.0,0.0 L 500.0,125.0 L 0.0,125.0 L 0.0,0.0 z" />
+<path fill-rule="evenodd" fill="#FA3991" stroke="#000000" stroke-width="2.0" opacity="0.5" d="M 0.0,50.0 L 500.0,50.0 L 500.0,550.0 L 0.0,550.0 L 0.0,50.0 z" /></svg>
