@@ -1,3 +1,11 @@
+##############################################################################################################
+# Authors: Carlos Giralt Fuixench, David Jiménez Omeñaca                                                     #
+# Date: 24-2-24                                                                                              #
+# Subject: Algoritmia básica                                                                                 #
+# Description: contains the definition and implementation of functions that give a text file containing the  #
+# size of a paper's page and a list of articles with their corresponding origin coordinates and size,        #
+# computes the articles that must be chosen in order to use the maximum area of the page possible            #
+##############################################################################################################
 from os import mkdir
 from shutil import rmtree
 from sys import argv
@@ -7,6 +15,12 @@ from variables import Variables
 import time
 
 def file_to_variables(file_name):
+    """
+    Pre: file_name is the name of a file containing the size of a paper's page and a list of articles 
+    with their corresponding origin coordinates and size.
+    Post: returns a Variables object containg all the information extracted from file_name
+
+    """
     
     with open(file_name,"r") as f:
         header = f.readline()
@@ -32,8 +46,8 @@ def file_to_variables(file_name):
 
 def main():
     
-    file1 = "test/in/test4.txt"
-    file2 = "test/out/test4.txt"
+    file1 = argv[1]
+    file2 = argv[2]
 
     variables = file_to_variables(file1)
 
