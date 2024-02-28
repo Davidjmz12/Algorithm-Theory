@@ -11,7 +11,7 @@ import sys
 import time
 
 sys.path.append('src')
-from search import file_to_variables
+from variables import file_to_variables
 from backtracking import backtracking
 
 path_test_in = "test/in/"

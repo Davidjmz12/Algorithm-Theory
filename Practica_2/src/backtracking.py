@@ -35,7 +35,7 @@ def backtracking_r(variables: Variables, thisSol: Solution, avoid_cote: bool, co
     Recursive backtracking algorithm that, given an instance of the class Variables which contains all the necessary
     information to compute which articles must be placed in a paper page to use the maximum space possible, 
     returns the total area occupied by the chosen articles and the number of tree nodes, considering the
-    arborescent representation of a backtrackig algorithm, visited during its computation
+    arborescent representation of a backtracking algorithm, visited during its computation
     
     """
     
@@ -44,9 +44,6 @@ def backtracking_r(variables: Variables, thisSol: Solution, avoid_cote: bool, co
     
     for i in range(thisSol.next, variables.n):
         cases += 1
-        
-        if cote <= bestSolution.totalArea:
-            return
         
         if variables.article_fits(i,thisSol):
             
@@ -58,4 +55,6 @@ def backtracking_r(variables: Variables, thisSol: Solution, avoid_cote: bool, co
                 next_cote = variables.cote(newSol)
                 if avoid_cote or cote > bestSolution.totalArea:
                     backtracking_r(variables, newSol, avoid_cote, next_cote)
+                    if cote <= bestSolution.totalArea:
+                        return
                 

@@ -7,6 +7,37 @@
 ##############################################################################################################
 from functools import reduce
 import random
+from article import Article
+
+def file_to_variables(file_name):
+    """
+    Pre: file_name is the name of a file containing the size of a paper's page and a list of articles 
+    with their corresponding origin coordinates and size.
+    Post: returns a Variables object containing all the information extracted from file_name
+
+    """
+    
+    with open(file_name,"r") as f:
+        header = f.readline()
+        variables = []
+        
+        while header:
+            header = header[:-1]
+            page_list = [int(_) for _ in header.split(" ")]
+            page = Article((0,0), page_list[2], page_list[1]).polygon
+            n = page_list[0]
+
+            list_art = []
+            
+            for _ in range(0, n):
+                line = f.readline()[:-1]
+                one_art_l = [int(_) for _ in line.split(" ")]
+                list_art.append(Article((one_art_l[2],one_art_l[3]), one_art_l[1], one_art_l[0])) 
+            
+            variables.append(Variables(list_art,n,page))
+            header = f.readline()
+    
+        return variables
 
 class Variables:
     """
