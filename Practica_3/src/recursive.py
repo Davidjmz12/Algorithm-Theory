@@ -5,8 +5,8 @@
 # Description: contains the implementation of a backtracking algorithm that computes the articles that must  #
 # be placed on a paper's page to use the maximum area possible                                               #
 ##############################################################################################################
-from solution import Solution, max_s
-from variables import Variables
+from src.solution import Solution, max_s
+from src.variables import Variables
 
 
 def recursive(variable: Variables):
@@ -27,7 +27,7 @@ def recursive_r(variables: Variables, i: int, thisSol: Solution):
     global cases
     cases += 1
 
-    if i == variables.n + 1:
+    if i == variables.n:
         return thisSol
 
     if variables.article_fits(i, thisSol):

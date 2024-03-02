@@ -7,7 +7,7 @@
 ##############################################################################################################
 from functools import reduce
 import random
-from article import Article
+from src.article import Article
 
 
 def file_to_variables(file_name):
@@ -142,4 +142,4 @@ class Variables:
         def sort_key(element):
             return element.area()
 
-        self.list_art = self.list_art.sort(key=sort_key)
+        self.list_art.sort(key=sort_key)

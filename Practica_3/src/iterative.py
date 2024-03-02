@@ -1,4 +1,4 @@
-from variables import Variables
+from src.variables import Variables
 from shapely.geometry import Polygon, Point
 
 
@@ -20,27 +20,32 @@ class Cell:
         return Cell(self.polygon.union(polygon))
 
 
-def populate_matrix(variables: Variables):
-    y_dim = variables.page.area
-    x_dim = variables.n
+def iterative(variable: Variables):
+    mat = populate_matrix(variable)
+    return mat[int(variable.n)-1][int(variable.page.area)].area
+
+
+def populate_matrix(variable: Variables):
+    y_dim = int(variable.page.area)
+    x_dim = int(variable.n)
 
     iterative_matrix = [[Cell()] * y_dim]
 
-    variables.sort_articles()
+    variable.sort_articles()
 
-    for i in range(0, x_dim + 1):
-        aux_v = [Cell(0)]
-        for a in range(0, y_dim + 1):
+    for i in range(0, x_dim):
+        aux_v = [Cell()]
+        for a in range(1, y_dim + 1):
 
-            if variables.list_art[i].area > a:
-                aux_v += iterative_matrix[i - 1][a]
+            if variable.list_art[i].area() > a:
+                aux_v += [iterative_matrix[i - 1][a]]
             else:
-                a_i = int(variables.list_art[i].area)
-                pol_i = variables.list_art[i].polygon
+                a_i = int(variable.list_art[i].area())
+                pol_i = variable.list_art[i].polygon
                 if iterative_matrix[i - 1][a - a_i].intersects_with_pol(pol_i):
-                    aux_v += iterative_matrix[i - 1][a - a_i].max(pol_i)
+                    aux_v += [iterative_matrix[i - 1][a - a_i].max(pol_i)]
                 else:
-                    aux_v += iterative_matrix[i - 1][a - a_i].add(pol_i)
+                    aux_v += [iterative_matrix[i - 1][a - a_i].add(pol_i)]
 
         iterative_matrix.append(aux_v)
 
