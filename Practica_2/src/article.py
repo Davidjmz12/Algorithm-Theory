@@ -7,26 +7,27 @@
 ##############################################################################################################
 
 from shapely.geometry import Polygon
-              
-class Article: 
+
+
+class Article:
     """
     This class defines the attributes and methods of an article object representation
     
     """
-    
+
     def __init__(self, coordinate, height, width):
         """
         Each Article consists of an origin, coordinates, a height and a width 
 
         """
         self.origin = coordinate
-        self.length = height    
+        self.length = height
         self.width = width
 
     def __str__(self) -> str:
         return f"Origin:{self.origin}, Length:{self.length}, Width:{self.width}"
-    
-    @property  
+
+    @property
     def polygon(self):
         """
         Pre: True
@@ -36,7 +37,7 @@ class Article:
         supRight = (self.origin[0] + self.width, self.origin[1])
         botRight = (self.origin[0] + self.width, self.origin[1] + self.length)
         botLeft = (self.origin[0], self.origin[1] + self.length)
-        return Polygon((self.origin, supRight, botRight, botLeft,self.origin))
+        return Polygon((self.origin, supRight, botRight, botLeft, self.origin))
 
     def area(self):
         """
@@ -45,7 +46,10 @@ class Article:
 
         """
         return self.polygon.area
-    
+
+    def fits(self, other):
+        return self.polygon.intersection(other.polygon).area == 0
+
     def to_svg(self, color, opacity):
         """
         Pre: Color contains the hexadecimal representation of a color
@@ -53,4 +57,4 @@ class Article:
         color and opacity
 
         """
-        return self.polygon.svg(fill_color=color,opacity=opacity)
+        return self.polygon.svg(fill_color=color, opacity=opacity)

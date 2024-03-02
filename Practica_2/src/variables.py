@@ -7,7 +7,8 @@
 ##############################################################################################################
 from functools import reduce
 import random
-from article import Article
+from src.article import Article
+
 
 def file_to_variables(file_name):
     """
@@ -16,28 +17,29 @@ def file_to_variables(file_name):
     Post: returns a Variables object containing all the information extracted from file_name
 
     """
-    
-    with open(file_name,"r") as f:
+
+    with open(file_name, "r") as f:
         header = f.readline()
         variables = []
-        
+
         while header:
             header = header[:-1]
             page_list = [int(_) for _ in header.split(" ")]
-            page = Article((0,0), page_list[2], page_list[1]).polygon
+            page = Article((0, 0), page_list[2], page_list[1]).polygon
             n = page_list[0]
 
             list_art = []
-            
+
             for _ in range(0, n):
                 line = f.readline()[:-1]
                 one_art_l = [int(_) for _ in line.split(" ")]
-                list_art.append(Article((one_art_l[2],one_art_l[3]), one_art_l[1], one_art_l[0])) 
-            
-            variables.append(Variables(list_art,n,page))
+                list_art.append(Article((one_art_l[2], one_art_l[3]), one_art_l[1], one_art_l[0]))
+
+            variables.append(Variables(list_art, n, page))
             header = f.readline()
-    
+
         return variables
+
 
 class Variables:
     """
@@ -45,8 +47,7 @@ class Variables:
     all the variables involved in our backtracking problem
 
     """
-   
-   
+
     def __str__(self):
         """
         Pre: True
@@ -58,8 +59,7 @@ class Variables:
             aux += f"<{article}>"
         aux += f" ]\nPage: {self.page}\nNumber of articles: {self.n}"
         return aux
-    
-    
+
     def __init__(self, list_art, n, page):
         """
         Each Variables object instance consists of a list of articles, the number of articles
@@ -70,40 +70,44 @@ class Variables:
         self.list_art = list_art
         self.n = n
         self.page = page
-    
+        no_int = []
+        for art in self.list_art:
+            no_int.append([article for article in self.list_art if article.fits(art) and art != article])
+        self.no_intersects_art = no_int
+
     def to_svg(self):
         """
         Pre: True
         Post: Returns an svg path for a visual representation of the page with all the articles in it
 
         """
-        
+
         const_white_color = "#FFFFFF"
+
         def random_color():
             color = '#'
             for _ in range(6):
                 color += random.choice('0123456789ABCDEF')
             return color
 
-        page_svg = self.page.svg(fill_color=const_white_color,opacity=0.1)
+        page_svg = self.page.svg(fill_color=const_white_color, opacity=0.1)
         arts_svg = []
         for art in self.list_art:
-            arts_svg.append(art.to_svg(color=random_color(),opacity=0.5))
+            arts_svg.append(art.to_svg(color=random_color(), opacity=0.5))
 
-        return (page_svg + "\n" + "\n".join(arts_svg)).replace("stroke=\"#555555\"","stroke=\"#000000\"")
-    
+        return (page_svg + "\n" + "\n".join(arts_svg)).replace("stroke=\"#555555\"", "stroke=\"#000000\"")
+
     def write_svg(self, file_name):
         """
         Pre: file_name contains the name of a text file
         Post: Stores, in file_name, an svg path for a visual representation of the page with all the articles in it
 
         """
-        with open(file_name,"w") as f:
+        with open(file_name, "w") as f:
             f.write(f'<svg version="1.1" xmlns="http://www.w3.org/2000/svg">\n')
             f.write(self.to_svg())
             f.write('</svg>')
 
-    ## to be determined     
     def article_fits(self, article_id, solution):
         """
         Pre: article_id contains the id of an article and solution contains our current solution
@@ -111,17 +115,17 @@ class Variables:
         current solution
 
         """
-        
-        if len(solution.indexes)==0:
+
+        if len(solution.indexes) == 0:
             return True
-        else:    
+        else:
             article_pol = self.list_art[article_id].polygon
             articles_pol = [self.list_art[_].polygon for _ in solution.indexes]
-            
-            polygon = reduce(lambda x,y:x.union(y),articles_pol)
-            
+
+            polygon = reduce(lambda x, y: x.union(y), articles_pol)
+
             return polygon.intersection(article_pol).area == 0
-    
+
     def area_article(self, article_id):
         """
         Pre: article_id contains the id of an article
@@ -129,7 +133,7 @@ class Variables:
 
         """
         return self.list_art[article_id].area()
-    
+
     def area_page(self):
         """
         Pre: True
@@ -137,16 +141,19 @@ class Variables:
 
         """
         return self.page.area
-    
+
     def cote(self, solution):
         """
         Pre: solution contains our current solution
-        Post: If non of the remaining articles fit in the paper given our current solution, returns the area of our current solution.
-        Otherwise, returns the sum of the area of our current solution and the area of the union of the remaining articles that fit
-        in our current solution.
+        Post: If none of the remaining articles fit in the paper given our current solution, returns the area of our
+        current solution.
+        Otherwise, returns the sum of the area of our current solution and the area of the union of the remaining
+        articles that fit in our current solution.
         
         """
-        articles_not_pol = [self.list_art[i].polygon for i in range(0,self.n) if (i not in solution.indexes and self.article_fits(i,solution))]
-        
-        return solution.totalArea if len(articles_not_pol) == 0 else reduce(lambda x,y:x.union(y),articles_not_pol).area + solution.totalArea
-        
+        articles_not_pol = [set(self.no_intersects_art[i]) for i in range(0, self.n) if (i in solution.indexes)]
+
+        articles_not_pol = [_.polygon for _ in reduce(lambda x, y: (x & y), articles_not_pol)]
+
+        return solution.totalArea if len(articles_not_pol) == 0 else reduce(lambda x, y: x.union(y),
+                                                                            articles_not_pol).area + solution.totalArea

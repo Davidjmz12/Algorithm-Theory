@@ -9,14 +9,14 @@
 from os import mkdir
 from shutil import rmtree
 from sys import argv
-from recursive import backtracking
-from variables import file_to_variables
+from src.backtracking import backtracking
+from src.variables import file_to_variables
 import time
 
 
 def main():
-    file1 = argv[1]
-    file2 = argv[2]
+    file1 = "test/in/test2.txt"
+    file2 = "test/out/test2.txt"
 
     variables = file_to_variables(file1)
 
