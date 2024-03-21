@@ -29,4 +29,4 @@ def create_test_file_2(n, scale, test_name):
 
 
 #create_test_file_1(6, 6, 10, "test/in/test2.txt")
-create_test_file_2(15, 10, "test/in/test5.txt")
+create_test_file_2(9, 10, "test/in/test5.txt")

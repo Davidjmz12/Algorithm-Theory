@@ -29,7 +29,7 @@ def main():
             now = time.time()
             size, num_cases = backtracking(variable)
             time_elapsed = (time.time() - now) * 1000
-            w_f.write(f"{size} {num_cases} {time_elapsed}\n")
+            w_f.write(f"{size} {num_cases} {variable.n} {time_elapsed}\n")
             variable.write_svg("svg/_" + str(i) + ".svg")
             i += 1
 
