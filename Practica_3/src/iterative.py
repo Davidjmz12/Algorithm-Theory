@@ -11,18 +11,27 @@ class Cell:
         return self.polygon.area
 
     def intersects_with_pol(self, pol: Polygon):
-        return pol.intersection(self.polygon).area == 0
+        return pol.intersection(self.polygon).area != 0
 
-    def max(self, polygon):
-        return self if self.area > polygon.area else Cell(polygon)
+    def max(self, cell1, cell2):
+        return max([self, cell1, cell2], key=lambda x: x.area)
 
     def add(self, polygon):
         return Cell(self.polygon.union(polygon))
 
 
+def print_matrix(matrix):
+    aux = ""
+    for i in matrix:
+        for j in i:
+            aux += str(j.area) + " "
+        aux += "\n"
+    print(aux)
+
+
 def iterative(variable: Variables):
     mat = populate_matrix(variable)
-    return mat[int(variable.n)-1][int(variable.page.area)].area
+    return mat[int(variable.n)][int(variable.page.area)].area
 
 
 def populate_matrix(variable: Variables):
@@ -33,17 +42,17 @@ def populate_matrix(variable: Variables):
 
     variable.sort_articles()
 
-    for i in range(0, x_dim):
+    for i in range(1, x_dim + 1):
         aux_v = [Cell()]
-        for a in range(1, y_dim + 1):
+        a_i = int(variable.list_art[i-1].area())
+        pol_i = variable.list_art[i-1].polygon
 
-            if variable.list_art[i].area() > a:
+        for a in range(1, y_dim + 1):
+            if a_i > a:
                 aux_v += [iterative_matrix[i - 1][a]]
             else:
-                a_i = int(variable.list_art[i].area())
-                pol_i = variable.list_art[i].polygon
                 if iterative_matrix[i - 1][a - a_i].intersects_with_pol(pol_i):
-                    aux_v += [iterative_matrix[i - 1][a - a_i].max(pol_i)]
+                    aux_v += [iterative_matrix[i - 1][a - a_i].max(Cell(pol_i), aux_v[-1])]
                 else:
                     aux_v += [iterative_matrix[i - 1][a - a_i].add(pol_i)]
 

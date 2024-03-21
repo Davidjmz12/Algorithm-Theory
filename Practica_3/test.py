@@ -32,7 +32,7 @@ def test():
             w_f.write("Results from " + file + "\n")
             for variable in variables:
                 now = time.time()
-                # size, num_art, num_cases = recursive(variable)
+                #size, num_art, num_cases = recursive(variable)
                 size, num_art, num_cases = iterative(variable), 0, 0
 
                 time_elapsed = time.time() - now

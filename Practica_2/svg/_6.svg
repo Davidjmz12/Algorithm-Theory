@@ -1,0 +1,14 @@
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" fill="#FFFFFF" stroke="#000000" stroke-width="2.0" opacity="0.1" d="M 0.0,0.0 L 60.0,0.0 L 60.0,60.0 L 0.0,60.0 L 0.0,0.0 z" />
+<path fill-rule="evenodd" fill="#DB8674" stroke="#000000" stroke-width="2.0" opacity="0.5" d="M 0.0,0.0 L 10.0,0.0 L 10.0,60.0 L 0.0,60.0 L 0.0,0.0 z" />
+<path fill-rule="evenodd" fill="#33BB48" stroke="#000000" stroke-width="2.0" opacity="0.5" d="M 0.0,0.0 L 60.0,0.0 L 60.0,10.0 L 0.0,10.0 L 0.0,0.0 z" />
+<path fill-rule="evenodd" fill="#256BDA" stroke="#000000" stroke-width="2.0" opacity="0.5" d="M 10.0,10.0 L 20.0,10.0 L 20.0,60.0 L 10.0,60.0 L 10.0,10.0 z" />
+<path fill-rule="evenodd" fill="#C50C53" stroke="#000000" stroke-width="2.0" opacity="0.5" d="M 10.0,10.0 L 60.0,10.0 L 60.0,20.0 L 10.0,20.0 L 10.0,10.0 z" />
+<path fill-rule="evenodd" fill="#C0A85E" stroke="#000000" stroke-width="2.0" opacity="0.5" d="M 20.0,20.0 L 30.0,20.0 L 30.0,60.0 L 20.0,60.0 L 20.0,20.0 z" />
+<path fill-rule="evenodd" fill="#EB40C2" stroke="#000000" stroke-width="2.0" opacity="0.5" d="M 20.0,20.0 L 60.0,20.0 L 60.0,30.0 L 20.0,30.0 L 20.0,20.0 z" />
+<path fill-rule="evenodd" fill="#AA7622" stroke="#000000" stroke-width="2.0" opacity="0.5" d="M 30.0,30.0 L 40.0,30.0 L 40.0,60.0 L 30.0,60.0 L 30.0,30.0 z" />
+<path fill-rule="evenodd" fill="#ABFD56" stroke="#000000" stroke-width="2.0" opacity="0.5" d="M 30.0,30.0 L 60.0,30.0 L 60.0,40.0 L 30.0,40.0 L 30.0,30.0 z" />
+<path fill-rule="evenodd" fill="#7A615D" stroke="#000000" stroke-width="2.0" opacity="0.5" d="M 40.0,40.0 L 50.0,40.0 L 50.0,60.0 L 40.0,60.0 L 40.0,40.0 z" />
+<path fill-rule="evenodd" fill="#98C34C" stroke="#000000" stroke-width="2.0" opacity="0.5" d="M 40.0,40.0 L 60.0,40.0 L 60.0,50.0 L 40.0,50.0 L 40.0,40.0 z" />
+<path fill-rule="evenodd" fill="#9FF537" stroke="#000000" stroke-width="2.0" opacity="0.5" d="M 50.0,50.0 L 60.0,50.0 L 60.0,60.0 L 50.0,60.0 L 50.0,50.0 z" />
+<path fill-rule="evenodd" fill="#629950" stroke="#000000" stroke-width="2.0" opacity="0.5" d="M 50.0,50.0 L 60.0,50.0 L 60.0,60.0 L 50.0,60.0 L 50.0,50.0 z" /></svg>

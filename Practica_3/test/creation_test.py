@@ -16,6 +16,6 @@ def create_test_file_1(width,height,scale,test_name):
         f.write(f"{width*2} {width*scale} {width*scale}\n")
         for i in range(0,width):
             f.write(f"{scale} {(width-i)*scale} {scale*i} {scale*i}\n{scale*(width-i)} {scale} {scale*i} {scale*i}\n")
-        
 
-create_test_file_1(10,10,1,"test/in/test1.txt")
+
+create_test_file_1(3,3,1,"test/in/test0.txt")

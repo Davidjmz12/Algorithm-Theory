@@ -15,25 +15,23 @@ import time
 
 
 def main():
-    
-    file1 = argv[1]
-    file2 = argv[2]
+    file1 = "test/in/test5.txt"
+    file2 = "test/out/test5.txt"
 
     variables = file_to_variables(file1)
 
-    with open(file2,"w") as w_f:
-        
+    with open(file2, "w") as w_f:
         rmtree("svg", ignore_errors=True)
         mkdir("svg")
-        i=0
+        i = 0
         w_f.write("Results from " + file1 + "\n")
         for variable in variables:
             now = time.time()
             size, num_cases = backtracking(variable)
-            time_elapsed = time.time()-now
+            time_elapsed = (time.time() - now) * 1000
             w_f.write(f"{size} {num_cases} {time_elapsed}\n")
-            variable.write_svg("svg/_"+str(i)+".svg")
-            i+=1
-        
+            variable.write_svg("svg/_" + str(i) + ".svg")
+            i += 1
+
+
 main()
-    
