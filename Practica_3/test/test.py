@@ -22,6 +22,9 @@ path_test_out_recursive = "test/out/recursive/"
 num_tests = 3
 test_files = ["test{}.txt".format(i) for i in range(num_tests)]
 
+test_recursive = True
+test_iterative = True
+
 
 def test(if_recursive,if_iterative):
     
@@ -51,4 +54,4 @@ def test(if_recursive,if_iterative):
                 
                 variable.write_svg(f"svg/_{file}_{i}.svg")
             
-test(if_recursive=True,if_iterative=True)
+test(if_recursive=test_recursive,if_iterative=test_iterative)
