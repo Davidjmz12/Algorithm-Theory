@@ -18,4 +18,13 @@ def create_test_file_1(width,height,scale,test_name):
             f.write(f"{scale} {(width-i)*scale} {scale*i} {scale*i}\n{scale*(width-i)} {scale} {scale*i} {scale*i}\n")
 
 
-create_test_file_1(3,3,1,"test/in/test0.txt")
+def create_test_file_2(n,scale,test_name):
+    with open(test_name,"w") as f:
+        for l in range(n):
+            f.write(f"{1*l} {l*scale} {1*scale}\n")
+            for i in range(0,1):
+                for j in range(0,l):
+                    f.write(f"{scale} {scale} {scale*j} {scale*i}\n")
+
+
+create_test_file_1(4,4,1,"test/in/test0.txt")

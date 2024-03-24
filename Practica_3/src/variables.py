@@ -5,10 +5,11 @@
 # Description: contains the definition and implementation of a class used to represent the variables of our  # 
 # backtracking problem                                                                                       #
 ##############################################################################################################
-from functools import reduce
-import random
-from src.article import Article
 
+import random
+from article import Article
+from solution import Solution
+from functools import cache
 
 def file_to_variables(file_name):
     """
@@ -87,9 +88,7 @@ class Variables:
             return color
 
         page_svg = self.page.svg(fill_color=const_white_color, opacity=0.1)
-        arts_svg = []
-        for art in self.list_art:
-            arts_svg.append(art.to_svg(color=random_color(), opacity=0.5))
+        arts_svg = [art.to_svg(color=random_color(), opacity=0.5) for art in self.list_art]
 
         return (page_svg + "\n" + "\n".join(arts_svg)).replace("stroke=\"#555555\"", "stroke=\"#000000\"")
 
@@ -104,31 +103,33 @@ class Variables:
             f.write(self.to_svg())
             f.write('</svg>')
 
-    def article_fits(self, article_id, solution):
+    def article_fits(self, article_id, solution:Solution):
         """
         Pre: article_id contains the id of an article and solution contains our current solution
         Post: Returns true if and only if article_id fits in the article paper, given our
         current solution
 
         """
+        
+        for index in solution.indexes:
+            if self.intersects_articles(index,article_id):
+                return False
+        
+        return True
 
-        if len(solution.indexes) == 0:
-            return True
-        else:
-            article_pol = self.list_art[article_id].polygon
-            articles_pol = [self.list_art[_].polygon for _ in solution.indexes]
-
-            polygon = reduce(lambda x, y: x.union(y), articles_pol)
-
-            return polygon.intersection(article_pol).area == 0
-
+    @cache
+    def intersects_articles(self,index_1,index_2):
+        a_1 = self.list_art[index_1]
+        a_2 = self.list_art[index_2]
+        return a_1.polygon.intersection(a_2.polygon).area != 0
+    
     def area_article(self, article_id):
         """
         Pre: article_id contains the id of an article
         Post: Returns the area of the polygonal representation of article_id
 
         """
-        return self.list_art[article_id].area()
+        return self.list_art[article_id].area
 
     def area_page(self):
         """
@@ -139,7 +140,6 @@ class Variables:
         return self.page.area
 
     def sort_articles(self):
-        def sort_key(element):
-            return element.area()
-
-        self.list_art.sort(key=sort_key)
+        
+        self.list_art.sort(key=lambda x: x.area)
+        return None

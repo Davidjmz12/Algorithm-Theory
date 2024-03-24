@@ -38,6 +38,7 @@ class Article:
         botLeft = (self.origin[0], self.origin[1] + self.length)
         return Polygon((self.origin, supRight, botRight, botLeft,self.origin))
 
+    @property 
     def area(self):
         """
         Pre: True

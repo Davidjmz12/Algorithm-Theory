@@ -1,4 +1,4 @@
-from src.variables import Variables
+from variables import Variables
 from shapely.geometry import Polygon, Point
 
 
@@ -31,7 +31,7 @@ def print_matrix(matrix):
 
 def iterative(variable: Variables):
     mat = populate_matrix(variable)
-    return mat[int(variable.n)][int(variable.page.area)].area
+    return (0,0,0) if variable.n==0 else (mat[int(variable.n)][int(variable.page.area)].area,0,0)
 
 
 def populate_matrix(variable: Variables):
@@ -44,7 +44,7 @@ def populate_matrix(variable: Variables):
 
     for i in range(1, x_dim + 1):
         aux_v = [Cell()]
-        a_i = int(variable.list_art[i-1].area())
+        a_i = int(variable.list_art[i-1].area)
         pol_i = variable.list_art[i-1].polygon
 
         for a in range(1, y_dim + 1):

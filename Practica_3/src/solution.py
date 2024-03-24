@@ -6,10 +6,6 @@
 # backtracking problem                                                                                       #
 ##############################################################################################################
 
-def max_s(one_sol, other_sol):
-    return one_sol if one_sol.totalArea >= other_sol.totalArea else other_sol
-
-
 class Solution:
     """
     Definition and implementation of a class used to represent 
