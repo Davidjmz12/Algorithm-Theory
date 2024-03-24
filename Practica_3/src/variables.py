@@ -1,6 +1,6 @@
 ##############################################################################################################
 # Authors: Carlos Giralt Fuixench, David Jiménez Omeñaca                                                     #
-# Date: 24-2-24                                                                                              #
+# Date: 24-03-24                                                                                             #
 # Subject: Algoritmia básica                                                                                 #
 # Description: contains the definition and implementation of a class used to represent the variables of our  # 
 # backtracking problem                                                                                       #

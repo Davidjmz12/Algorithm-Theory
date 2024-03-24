@@ -1,6 +1,6 @@
 ##############################################################################################################
 # Authors: Carlos Giralt Fuixench, David Jiménez Omeñaca                                                     #
-# Date: 25-2-24                                                                                               #
+# Date: 25-2-24                                                                                              #
 # Subject: Algoritmia básica                                                                                 #
 # Description: test file to check the correction of our backtracking algorithm                               #                                                                                   #                        
 ##############################################################################################################

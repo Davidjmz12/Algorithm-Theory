@@ -20,7 +20,7 @@ path_test_out_iterative = "test/out/iterative/"
 path_test_out_recursive = "test/out/recursive/"
 
 num_tests = 3
-test_files = ["test{}.txt".format(i) for i in range(2,num_tests)]
+test_files = ["test{}.txt".format(i) for i in range(num_tests)]
 
 
 def test(if_recursive,if_iterative):

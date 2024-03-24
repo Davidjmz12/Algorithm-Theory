@@ -1,6 +1,6 @@
 ##############################################################################################################
 # Authors: Carlos Giralt Fuixench, David Jiménez Omeñaca                                                     #
-# Date: 24-2-24                                                                                              #
+# Date: 24-3-24                                                                                              #
 # Subject: Algoritmia básica                                                                                 #
 # Description: contains the implementation of a backtracking algorithm that computes the articles that must  #
 # be placed on a paper's page to use the maximum area possible                                               #
@@ -11,7 +11,13 @@ from variables import Variables
 
 def recursive(variable: Variables):
     """
-
+    Recursive callable function.
+    Pre: variable contains the variables of the article-problem
+    Post: Return 3 values: the total area, the number of articles of the solution and the number of iterations
+          made in the algorithm.
+          
+    Time Complexity: 2^n where n is the number of articles.
+    
     """
     global cases
     cases = 0
@@ -21,18 +27,24 @@ def recursive(variable: Variables):
     return sol.totalArea, len(sol.indexes), cases
 
 
-def recursive_r(variables: Variables, i: int, thisSol: Solution):
+def recursive_r(variable: Variables, i: int, thisSol: Solution):
     """
+    Recursive auxiliary function
+    Pre: variable contains the variables of the problem
+         i is an index of the article to select
+         thisSol contains a solution already made.
+    Post: return the best solution out of all the possibles ones in variables.
     """
+    
     global cases
     cases += 1
 
-    if i == variables.n:
+    if i == variable.n:
         return thisSol
 
-    if variables.article_fits(i, thisSol):
-        newSol = Solution(thisSol.indexes + [i], thisSol.totalArea + variables.area_article(i))
-        return max(recursive_r(variables, i + 1, newSol), recursive_r(variables, i + 1, thisSol),
+    if variable.article_fits(i, thisSol):
+        newSol = Solution(thisSol.indexes + [i], thisSol.totalArea + variable.area_article(i))
+        return max(recursive_r(variable, i + 1, newSol), recursive_r(variable, i + 1, thisSol),
                    key=lambda x:x.totalArea)
     else:
-        return recursive_r(variables, i + 1, thisSol)
+        return recursive_r(variable, i + 1, thisSol)
