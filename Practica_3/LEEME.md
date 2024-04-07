@@ -62,12 +62,12 @@ pip install -r requirements.txt
 ```
 
 ## Usage
-to find the optimal arrangement of articles using the iterative algorithm, run the following command:
+To find the optimal arrangement of articles using the iterative algorithm, run the following command:
 ```bash
 ./busca -i input.txt output.txt
 ```
 
-to find the optimal arrangement of articles using the recursive algorithm, run the following command:
+To find the optimal arrangement of articles using the recursive algorithm, run the following command:
 ```bash
 ./busca -r input.txt output.txt
 ```
