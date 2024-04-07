@@ -1,6 +1,6 @@
 ##############################################################################################################
 # Authors: Carlos Giralt Fuixench, David Jiménez Omeñaca                                                     #
-# Date: 24-3-24                                                                                              #
+# Date: 7-4-24                                                                                              #
 # Subject: Algoritmia básica                                                                                 #
 # Description: contains the definition and implementation of the iterative algorithm for the article problem #
 ##############################################################################################################
@@ -62,17 +62,16 @@ def iterative(variable: Variables):
     Dynamic callable function
     
     Pre: variable contains the variables of the problem
-    Post: Returns the result of the Dynamic problem.
+    Post: Returns the solution of the problem using Dynamic Progamming
     
     """
     mat = populate_matrix(variable)
     return (0,0,0) if variable.n==0 else (mat[int(variable.n)][int(variable.page.area)].area,0,0)
 
-
 def populate_matrix(variable: Variables):
     
     """
-    Function that populates the matrix for the dynamic problem.
+    Function that populates the matrix that will be used to solve the problem.
     
     """
     y_dim = int(variable.page.area)
