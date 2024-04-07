@@ -1,4 +1,4 @@
-# Backtracking algorithm to determine the best newspaper page coverage
+# Dynamic programming and recursive algorithms to determine the best newspaper page coverage
 
 ## Description
 Given a text file containing the dimensions of a newspaper page and a set of articles with their origin coordinates, height, and width, our goal is to determine the combination of articles that covers the maximum area of the page possible. The algorithms employed for this task are a recursive algorithm which systematically explores all different combinations of articles to find the optimal arrangement, and an iterative algorithm designed by following a Dynamic Programming pattern.
