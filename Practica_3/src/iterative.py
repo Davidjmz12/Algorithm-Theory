@@ -61,20 +61,6 @@ def plot_matrix(matrix):
     plt.colorbar()
     plt.show()
 
-<<<<<<< HEAD
-=======
-def iterative(variable: Variables):
-    """
-    Dynamic callable function
-    
-    Pre: variable contains the variables of the problem
-    Post: Returns the solution of the problem using Dynamic Progamming
-    
-    """
-    mat = populate_matrix(variable)
-    return (0,0,0) if variable.n==0 else (mat[int(variable.n)][int(variable.page.area)].area,0,0)
-
->>>>>>> c21676b34cbd5e904549c8769bd75257c790a897
 def populate_matrix(variable: Variables):
     
     """

@@ -1,9 +1,9 @@
 ##############################################################################################################
 # Authors: Carlos Giralt Fuixench, David Jiménez Omeñaca                                                     #
-# Date: 7-4-24                                                                                              #
+# Date: 24-3-24                                                                                              #
 # Subject: Algoritmia básica                                                                                 #
-# Description: contains the implementation of a recursive algorithm that uses Dynamic Programming            #
-# to compute the articles that must be placed on a paper's page to use the maximum area possible             #                                               #
+# Description: contains the implementation of a backtracking algorithm that computes the articles that must  #
+# be placed on a paper's page to use the maximum area possible                                               #
 ##############################################################################################################
 from solution import Solution
 from variables import Variables
@@ -16,7 +16,7 @@ def recursive(variable: Variables):
     Post: Return 3 values: the total area, the number of articles of the solution and the number of iterations
           made in the algorithm.
           
-    Time Complexity: 2^n where n is the number of articles.
+    Time Complexity: O(2^n) where n is the number of articles.
     
     """
     global cases
