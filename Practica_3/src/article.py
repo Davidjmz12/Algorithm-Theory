@@ -7,7 +7,7 @@
 ##############################################################################################################
 
 from shapely.geometry import Polygon
-              
+from functools import cache
 class Article: 
     """
     This class defines the attributes and methods of an article object representation
@@ -46,6 +46,10 @@ class Article:
 
         """
         return self.polygon.area
+    
+    @cache
+    def intersects(self, other_art):
+        return self.polygon.intersection(other_art.polygon).area != 0
     
     def to_svg(self, color, opacity):
         """

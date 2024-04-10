@@ -1,3 +1,10 @@
+##############################################################################################################
+# Authors: Carlos Giralt Fuixench, David Jiménez Omeñaca                                                     #
+# Date: 10-4-24                                                                                              #
+# Subject: Algoritmia básica                                                                                 #
+# Description: test to create volume tests for the article problem                                           #
+##############################################################################################################
+
 def create_test_file_1(width,height,scale,test_name):
     with open(test_name,"w") as f:
         f.write(f"{width*height} {height*scale} {width*scale}\n")

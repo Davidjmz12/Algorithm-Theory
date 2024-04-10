@@ -13,6 +13,7 @@ import numpy as np
 import matplotlib.pyplot as  plt
 
 
+
 class Cell:
     """
     Class that contains a polygon representing the solution.
@@ -35,6 +36,9 @@ class Cell:
     def add(self, polygon):
         return Cell(self.polygon.union(polygon))
 
+# ---------------------------------------------------------------------------------------------
+# Auxiliary Functions
+# ---------------------------------------------------------------------------------------------
 
 def print_matrix(matrix):
     
@@ -56,18 +60,6 @@ def plot_matrix(matrix):
     plt.pcolormesh(np_array, cmap='viridis')
     plt.colorbar()
     plt.show()
-
-def iterative(variable: Variables):
-    """
-    Dynamic callable function
-    
-    Pre: variable contains the variables of the problem
-    Post: Returns the result of the Dynamic problem.
-    
-    """
-    mat = populate_matrix(variable)
-    return (0,0,0) if variable.n==0 else (mat[int(variable.n)][int(variable.page.area)].area,0,0)
-
 
 def populate_matrix(variable: Variables):
     
@@ -99,3 +91,18 @@ def populate_matrix(variable: Variables):
         iterative_matrix.append(aux_v)
 
     return iterative_matrix
+
+# ---------------------------------------------------------------------------------------------
+
+def iterative(variable: Variables):
+    """
+    Dynamic callable function
+    
+    Pre: variable contains the variables of the problem
+    Post: Returns the result of the Dynamic problem.
+    
+    Time complexity: O(n*N) where N is the total area of the article and
+                     n is the number of articles.
+    """
+    mat = populate_matrix(variable)
+    return (0,0,0) if variable.n==0 else (mat[int(variable.n)][int(variable.page.area)].area,0,0)

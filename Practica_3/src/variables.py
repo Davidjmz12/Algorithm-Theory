@@ -121,7 +121,7 @@ class Variables:
     def intersects_articles(self,index_1,index_2):
         a_1 = self.list_art[index_1]
         a_2 = self.list_art[index_2]
-        return a_1.polygon.intersection(a_2.polygon).area != 0
+        return a_1.intersects(a_2) 
     
     def area_article(self, article_id):
         """
@@ -139,7 +139,7 @@ class Variables:
         """
         return self.page.area
 
-    def sort_articles(self):
+    def sort_articles(self,_reverse=False):
         
-        self.list_art.sort(key=lambda x: x.area)
+        self.list_art.sort(key=lambda x: x.area,reverse=_reverse)
         return None
