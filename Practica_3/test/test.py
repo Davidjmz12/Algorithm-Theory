@@ -31,8 +31,9 @@ test_greedy = True
 
 def test(if_recursive,if_iterative,if_greedy):
     '''
-    Greedy test function
+    Test function
     '''
+    
     rmtree("test/svg", ignore_errors=True)
     mkdir("test/svg")
     
