@@ -2,7 +2,7 @@
 # Authors: Carlos Giralt Fuixench, David Jiménez Omeñaca                                                     #
 # Date: 24-03-24                                                                                             #
 # Subject: Algoritmia básica                                                                                 #
-# Description: contains the definition and implementation of functions that give a text file containing the  #
+# Description: contains the definition and implementation of functions that given a text file containing the #
 # size of a paper's page and a list of articles with their corresponding origin coordinates and size,        #
 # computes the articles that must be chosen in order to use the maximum area of the page possible            #
 ##############################################################################################################
