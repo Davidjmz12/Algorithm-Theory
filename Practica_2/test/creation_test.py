@@ -1,3 +1,10 @@
+##############################################################################################################
+# Authors: Carlos Giralt Fuixench, David Jiménez Omeñaca                                                     #
+# Date: 25-2-24                                                                                              #
+# Subject: Algoritmia básica                                                                                 #
+# Description: Test creator script                                                                           #                        
+##############################################################################################################
+
 def create_test_file_1(width, height, scale, test_name):
     with open(test_name, "w") as f:
         f.write(f"{width * height} {height * scale} {width * scale}\n")
