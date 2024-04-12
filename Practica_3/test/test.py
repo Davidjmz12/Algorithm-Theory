@@ -28,7 +28,7 @@ test_recursive = True
 test_iterative = True
 test_greedy = True
 
-test_to_plot = True
+test_to_plot = False
 
 
 def test(if_recursive,if_iterative,if_greedy):
@@ -66,6 +66,6 @@ def test(if_recursive,if_iterative,if_greedy):
                         else:
                             w_f.write(f"{size} {time_elapsed}\n{str_art}")
                 
-                variable.write_svg(f"svg/_{file}_{i}.svg")
+                variable.write_svg(f"test/svg/_{file}_{i}.svg")
 
 test(if_recursive=test_recursive,if_iterative=test_iterative,if_greedy=test_greedy)

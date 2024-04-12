@@ -61,4 +61,4 @@ class Article:
         return self.polygon.svg(fill_color=color,opacity=opacity)
 
     def to_file(self) -> str:
-        return (f"\t{self.width} {self.height} {self.origin[0]} {self.origin[1]}\n")
+        return (f" {self.width} {self.height} {self.origin[0]} {self.origin[1]}\n")
