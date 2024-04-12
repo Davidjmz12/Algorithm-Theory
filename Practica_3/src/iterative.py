@@ -9,8 +9,6 @@
 
 from variables import Variables
 from shapely.geometry import Polygon, Point
-import numpy as np
-
 
 
 class Cell:
@@ -56,7 +54,7 @@ def plot_matrix(matrix):
     """
     Function that plots matrix, a 2-D array of the class Cell
     """
-    
+    import numpy as np
     import matplotlib.pyplot as  plt
     
     np_array = np.array([[obj.area for obj in row] for row in matrix])
