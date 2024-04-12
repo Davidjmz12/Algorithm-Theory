@@ -56,7 +56,15 @@ python --version
 ```
 
 ## Install Dependencies
-In order to install the necessary dependencies to run this project, run:
+
+Firstly, we have to create a empty environment. To do so, run the following script:
+```bash
+pip install virtualenv
+python<version> -m venv <virtual-environment-name>
+source <virtual-environment-name>/bin/activate
+```
+
+Now, we can install the necessary dependencies to run this project by running this command:
 ```bash
 pip install -r requirements.txt
 ```
