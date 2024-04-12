@@ -15,8 +15,13 @@ import time
 
 
 def main():
-    file1 = "test/in/test5.txt"
-    file2 = "test/out/test5.txt"
+
+    if len(argv)<3:
+        print("Must be called with two arguments.")
+        exit(1)
+    
+    file1 = argv[1]
+    file2 = argv[2]
 
     variables = file_to_variables(file1)
 
