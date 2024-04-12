@@ -13,8 +13,7 @@ def recursive(variable: Variables):
     """
     Recursive callable function.
     Pre: variable contains the variables of the article-problem
-    Post: Return 3 values: the total area, the number of articles of the solution and the number of iterations
-          made in the algorithm.
+    Post: Return 2 values: the total area and a string with the articles in the solution. 
           
     Time Complexity: O(2^n) where n is the number of articles.
     
@@ -24,7 +23,7 @@ def recursive(variable: Variables):
 
     initial_sol = Solution()
     sol = recursive_r(variable, 0, initial_sol)
-    return sol.totalArea, len(sol.indexes), cases
+    return sol.totalArea, variable.to_file(sol)
 
 
 def recursive_r(variable: Variables, i: int, thisSol: Solution):

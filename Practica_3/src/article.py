@@ -20,11 +20,11 @@ class Article:
 
         """
         self.origin = coordinate
-        self.length = height    
+        self.height = height    
         self.width = width
 
     def __str__(self) -> str:
-        return f"Origin:{self.origin}, Length:{self.length}, Width:{self.width}"
+        return f"Origin:{self.origin}, Length:{self.height}, Width:{self.width}"
     
     @property  
     def polygon(self):
@@ -34,8 +34,8 @@ class Article:
 
         """
         supRight = (self.origin[0] + self.width, self.origin[1])
-        botRight = (self.origin[0] + self.width, self.origin[1] + self.length)
-        botLeft = (self.origin[0], self.origin[1] + self.length)
+        botRight = (self.origin[0] + self.width, self.origin[1] + self.height)
+        botLeft = (self.origin[0], self.origin[1] + self.height)
         return Polygon((self.origin, supRight, botRight, botLeft,self.origin))
 
     @property 
@@ -59,3 +59,6 @@ class Article:
 
         """
         return self.polygon.svg(fill_color=color,opacity=opacity)
+
+    def to_file(self) -> str:
+        return (f"\t{self.width} {self.height} {self.origin[0]} {self.origin[1]}\n")

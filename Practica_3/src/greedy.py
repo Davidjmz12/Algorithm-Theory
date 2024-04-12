@@ -24,7 +24,7 @@ def greedy(variable: Variables):
     variable.sort_articles(_reverse=True)
     
     sol = greedy_r(variable,[], initial_sol)
-    return sol.totalArea, len(sol.indexes),0
+    return sol.totalArea, variable.to_file(sol)
 
 
 def greedy_r(variable: Variables, articles_not_ind, thisSol: Solution):

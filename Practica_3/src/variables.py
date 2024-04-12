@@ -143,3 +143,7 @@ class Variables:
         
         self.list_art.sort(key=lambda x: x.area,reverse=_reverse)
         return None
+
+    def to_file(self,solution) -> str:
+        return "".join([self.list_art[ind].to_file() for ind in solution.indexes])
+    

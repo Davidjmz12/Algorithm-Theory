@@ -31,11 +31,11 @@ def main(opt,file1,file2):
             
             function = recursive if opt=="-r" else iterative
             
-            size, num_art, num_cases =  function(variable)
+            size, str_art =  function(variable)
             
             time_elapsed = 1000*(time.time() - now)
             
-            w_f.write(f"{variable.n} {size} {num_cases} {num_art} {time_elapsed}\n")
+            w_f.write(f"{size} {time_elapsed} \n {str_art} \n")
             variable.write_svg("svg/_"+str(i)+".svg")
         
 main(argv[1],argv[2],argv[3])
