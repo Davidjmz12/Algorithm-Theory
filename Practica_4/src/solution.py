@@ -41,5 +41,8 @@ class Solution:
         """
         return self.totalArea < other.totalArea
 
+    def last(self):
+        return self.indexes[-1]
+    
     def __str__(self):
         return f"Indexes: {self.indexes}, Area: {self.totalArea}"
