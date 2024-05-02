@@ -1,7 +1,7 @@
 # Dynamic programming and recursive algorithms to determine the best newspaper page coverage
 
 ## Description
-Given a text file containing the dimensions of a newspaper page and a set of articles with their origin coordinates, height, and width, our goal is to determine the combination of articles that covers the maximum area of the page possible. The algorithms employed for this task are a recursive algorithm which systematically explores all different combinations of articles to find the optimal arrangement, and an iterative algorithm designed by following a Dynamic Programming pattern.
+Given a text file containing the dimensions of a newspaper page and a set of articles with their origin coordinates, height, and width, our goal is to determine the combination of articles that leaves the minimum uncovered area of the page possible. The algorithms employed for this task are a branch and bound algorithm, and an algorithm designed by following a Linear Programming approach.
 
 ## Table of Contents
 1. [Directory Description](#directory-description)
@@ -15,7 +15,7 @@ This project is organized with the following structure:
 
 - **buscaLP**: Shell script to run the linear programming algorithm.
 
-- **buscaRyP**: Shell script to run branch and prune algorithm.
+- **buscaRyP**: Shell script to run the branch and prune algorithm.
 
 - **ejecutar.sh**: streamlines the process of running tests for the newspaper page coverage tool. By executing this script, all tests located in the test/ directory will be automatically executed. This facilitates quick and efficient testing of the functionality and correctness of the tool.
 
