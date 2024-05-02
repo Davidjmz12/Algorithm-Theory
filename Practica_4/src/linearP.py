@@ -2,7 +2,7 @@
 # Authors: Carlos Giralt Fuixench, David Jiménez Omeñaca                                                     #
 # Date:                                                                                                      #
 # Subject: Algoritmia básica                                                                                 #
-# Description:                                                                                               #
+# Description: Implementation of the Linear Programming algorithm                                            #
 ##############################################################################################################
 from solution import Solution
 from variables import Variables
@@ -13,12 +13,16 @@ from pulp import LpProblem, LpMaximize, LpBinary, LpVariable, lpSum, lpDot, PULP
 
 
 def create_intersection_matrix(variable: Variables):
+    """
+    Function that returns the upper-part of the symmetric intersection matrix
+    as an array of arrays.
+    """
     fun = lambda i,j:0 if i==j else 0 if not variable.intersects_articles(i,j) else 1
     return [ [fun(i,j) for j in range(i, variable.n)] for i in range(variable.n)]
 
 def linearP(variable: Variables):
     """
-    
+    Function that returns the total area of the optimal solution
     """
 
     model = LpProblem(name="small-problem",sense=LpMaximize)

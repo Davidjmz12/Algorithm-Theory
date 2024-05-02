@@ -1,8 +1,8 @@
 ##############################################################################################################
 # Authors: Carlos Giralt Fuixench, David Jiménez Omeñaca                                                     #
-# Date:                                                                                                      #
+# Date: 02-5-24                                                                                              #
 # Subject: Algoritmia básica                                                                                 #
-# Description:                                                                                               #
+# Description:  Implementation of the Branch and Prune algorithm                                             #
 ##############################################################################################################
 from solution import Solution
 from variables import Variables
@@ -11,20 +11,24 @@ import heapq as hq
 
 def cost_function(sol:Solution, variable:Variables):
     """
+    Function that returns the cost_function of the solution 'sol'
     
     """
     return variable.area_page()-sol.totalArea
 
 def estimation_function(sol:Solution, variable:Variables):
     """
+    Function that returns the estimation functuon of the solution 'sol'
     
     """
     return variable.area_page()-sol.totalArea-variable.bound_2(sol)
 
 def branch(variable: Variables):
     """
+    Function that returns the total area and the number of expanded branches 
     
     """
+    
     cote = float('inf')
     branches=0
     solution = Solution()

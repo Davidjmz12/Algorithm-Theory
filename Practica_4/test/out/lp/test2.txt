@@ -1,2 +1,0 @@
-Results from test2.txt
-8 17.0 0 22.365093231201172

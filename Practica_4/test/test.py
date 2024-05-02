@@ -49,11 +49,11 @@ def test():
                     if test_it:                  
                         now = time.time()
                         
-                        size, n_branch =  fun(variable)
+                        size, n_branches =  fun(variable)
                         
                         time_elapsed = 1000*(time.time() - now)
 
-                        w_f.write(f"{variable.n} {size} {n_branch} {time_elapsed}\n")
+                        w_f.write(f"{variable.area_page()-size} {n_branches} {time_elapsed} \n")
                 
                 variable.write_svg(f"test/svg/_{file}_{i}.svg")
 

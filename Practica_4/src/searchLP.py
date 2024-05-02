@@ -28,10 +28,11 @@ def main(file1,file2):
         for i,variable in enumerate(variables):
             now = time.time()
 
-            size,_ =  linearP(variable)
+            size,n_branches =  linearP(variable)
             
             time_elapsed = 1000*(time.time() - now)
             
-            w_f.write(f"{size} {time_elapsed} \n")
+            w_f.write(f"{variable.area_page()-size} {n_branches} {time_elapsed} \n")
             variable.write_svg("svg/_"+str(i)+".svg")
-main(argv[0],argv[1])
+            
+main(argv[1],argv[2])
