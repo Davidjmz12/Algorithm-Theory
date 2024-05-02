@@ -13,13 +13,13 @@ def cost_function(sol:Solution, variable:Variables):
     """
     
     """
-    return variable.area_page()-variable.bound(sol)
+    return variable.area_page()-sol.totalArea-variable.bound(sol)
 
 def estimation_function(sol:Solution, variable:Variables):
     """
     
     """
-    return variable.area_page()-variable.bound_2(sol)
+    return variable.area_page()-sol.totalArea-variable.bound_2(sol)
 
 def branch(variable: Variables):
     """
@@ -38,6 +38,7 @@ def branch(variable: Variables):
     
     while queue:
         node_id = hq.heappop(queue)[1]
+        print("Hola",node_id)
         branches += 1
         for i in range(node_id.next,variable.n):
             #If it is a feasible solution
@@ -52,7 +53,8 @@ def branch(variable: Variables):
                         cote = cost_child
                         solution=child
         
-        if not queue or estimation_function(hq.nsmallest(1,queue)[0][1], variable) >= cote:
+        if not queue or estimation_function(hq.nsmallest(1,queue)[0][1], variable) > cote:
+            print("Adios")
             return solution.totalArea,branches
     
     print("Solution not found!!")
