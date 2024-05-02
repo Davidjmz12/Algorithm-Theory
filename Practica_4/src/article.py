@@ -1,6 +1,6 @@
 ##############################################################################################################
 # Authors: Carlos Giralt Fuixench, David Jiménez Omeñaca                                                     #
-# Date: 24-2-24                                                                                              #
+# Date: 02-5-24                                                                                              #
 # Subject: Algoritmia básica                                                                                 #
 # Description: contains the definition and implementation of a class used to represent a paper's page as     #
 # well as the articles that must be placed on it                                                             #
