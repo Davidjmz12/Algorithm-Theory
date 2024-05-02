@@ -13,13 +13,13 @@ def cost_function(sol:Solution, variable:Variables):
     """
     
     """
-    return variable.area_page()-sol.totalArea
+    return variable.area_page()-variable.bound(sol)
 
 def estimation_function(sol:Solution, variable:Variables):
     """
     
     """
-    return variable.area_page()-variable.bound(sol)
+    return variable.area_page()-variable.bound_2(sol)
 
 def branch(variable: Variables):
     """

@@ -159,5 +159,8 @@ class Variables:
         
         """
         articles_not_pol = [self.list_art[i].polygon for i in range(0,self.n) if (i not in solution.indexes and self.article_fits(i,solution))]
-        return solution.totalArea if len(articles_not_pol) == 0 else reduce(lambda x,y:x.union(y),articles_not_pol).area + solution.totalArea
-        
+        return 0 if len(articles_not_pol) == 0 else reduce(lambda x,y:x.union(y),articles_not_pol).area
+    
+    def bound_2(self, solution):
+        articles_not_pol = [self.list_art[i].polygon for i in range(0,self.n) if (i not in solution.indexes and self.article_fits(i,solution))]
+        return 0 if len(articles_not_pol) == 0 else sum([i.area for i in articles_not_pol])
