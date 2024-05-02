@@ -40,9 +40,11 @@ def linearP(variable: Variables):
     constraints_non_intersection = (lpSum(lpDot(y_ij,c_ij)) == 0,"no_intersection")
     model +=  constraints_non_intersection
     
+    
+    # Constrains of auxiliary variables.
     for i in range(n):
         for j in range(i,n):
-            model += (y_ij[i][j-i] <= y_i[i],f"prod1_{i}_{j}") # i=0 j=1
+            model += (y_ij[i][j-i] <= y_i[i],f"prod1_{i}_{j}")
             model += (y_ij[i][j-i] <= y_i[j],f"prod2_{i}_{j}")
             model += (y_ij[i][j-i] >= y_i[j] + y_i[i] - 1,f"prod3_{i}_{j}")
 
