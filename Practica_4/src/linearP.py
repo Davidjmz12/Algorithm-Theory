@@ -20,9 +20,6 @@ def linearP(variable: Variables):
     """
     
     """
-    
-    
-    
 
     model = LpProblem(name="small-problem",sense=LpMaximize)
     
@@ -32,7 +29,6 @@ def linearP(variable: Variables):
     
     y_i = [LpVariable(name=f"y_{i}",cat=LpBinary) for i in range(n)]
     y_ij = [[LpVariable(name=f"aux_{i}_{j}",cat=LpBinary) for j in range(i,n)] for i in range(n)]
-    
     
     objective_fun = lpSum(lpDot(a_i,y_i))
     model.setObjective(objective_fun)
@@ -51,7 +47,7 @@ def linearP(variable: Variables):
     index_y = [i for i in range(len(model.variables())) if model.variables()[i].name[0] == "y"]
 
     var_y = [model.variables()[i] for i in index_y]
-    var_y.sort(key=lambda x:x.name)
+    var_y.sort(key=lambda x:int(x.name[2:]))
     
     index_sol = [i for i in range(len(var_y)) if var_y[i].varValue == 1]
 
