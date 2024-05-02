@@ -1,12 +1,12 @@
 <svg version="1.1" xmlns="http://www.w3.org/2000/svg">
 <path fill-rule="evenodd" fill="#FFFFFF" stroke="#000000" stroke-width="2.0" opacity="0.1" d="M 0.0,0.0 L 10.0,0.0 L 10.0,1.0 L 0.0,1.0 L 0.0,0.0 z" />
-<path fill-rule="evenodd" fill="#437052" stroke="#000000" stroke-width="2.0" opacity="0.5" d="M 0.0,0.0 L 1.0,0.0 L 1.0,1.0 L 0.0,1.0 L 0.0,0.0 z" />
-<path fill-rule="evenodd" fill="#FFC929" stroke="#000000" stroke-width="2.0" opacity="0.5" d="M 1.0,0.0 L 2.0,0.0 L 2.0,1.0 L 1.0,1.0 L 1.0,0.0 z" />
-<path fill-rule="evenodd" fill="#45AB48" stroke="#000000" stroke-width="2.0" opacity="0.5" d="M 2.0,0.0 L 3.0,0.0 L 3.0,1.0 L 2.0,1.0 L 2.0,0.0 z" />
-<path fill-rule="evenodd" fill="#C0FE1C" stroke="#000000" stroke-width="2.0" opacity="0.5" d="M 3.0,0.0 L 4.0,0.0 L 4.0,1.0 L 3.0,1.0 L 3.0,0.0 z" />
-<path fill-rule="evenodd" fill="#116B60" stroke="#000000" stroke-width="2.0" opacity="0.5" d="M 4.0,0.0 L 5.0,0.0 L 5.0,1.0 L 4.0,1.0 L 4.0,0.0 z" />
-<path fill-rule="evenodd" fill="#F8A660" stroke="#000000" stroke-width="2.0" opacity="0.5" d="M 5.0,0.0 L 6.0,0.0 L 6.0,1.0 L 5.0,1.0 L 5.0,0.0 z" />
-<path fill-rule="evenodd" fill="#84FAD8" stroke="#000000" stroke-width="2.0" opacity="0.5" d="M 6.0,0.0 L 7.0,0.0 L 7.0,1.0 L 6.0,1.0 L 6.0,0.0 z" />
-<path fill-rule="evenodd" fill="#9E36A2" stroke="#000000" stroke-width="2.0" opacity="0.5" d="M 7.0,0.0 L 8.0,0.0 L 8.0,1.0 L 7.0,1.0 L 7.0,0.0 z" />
-<path fill-rule="evenodd" fill="#FFC632" stroke="#000000" stroke-width="2.0" opacity="0.5" d="M 8.0,0.0 L 9.0,0.0 L 9.0,1.0 L 8.0,1.0 L 8.0,0.0 z" />
-<path fill-rule="evenodd" fill="#684097" stroke="#000000" stroke-width="2.0" opacity="0.5" d="M 9.0,0.0 L 10.0,0.0 L 10.0,1.0 L 9.0,1.0 L 9.0,0.0 z" /></svg>
+<path fill-rule="evenodd" fill="#C6629F" stroke="#000000" stroke-width="2.0" opacity="0.5" d="M 0.0,0.0 L 1.0,0.0 L 1.0,1.0 L 0.0,1.0 L 0.0,0.0 z" />
+<path fill-rule="evenodd" fill="#EF1225" stroke="#000000" stroke-width="2.0" opacity="0.5" d="M 1.0,0.0 L 2.0,0.0 L 2.0,1.0 L 1.0,1.0 L 1.0,0.0 z" />
+<path fill-rule="evenodd" fill="#6C0DCC" stroke="#000000" stroke-width="2.0" opacity="0.5" d="M 2.0,0.0 L 3.0,0.0 L 3.0,1.0 L 2.0,1.0 L 2.0,0.0 z" />
+<path fill-rule="evenodd" fill="#A6F58E" stroke="#000000" stroke-width="2.0" opacity="0.5" d="M 3.0,0.0 L 4.0,0.0 L 4.0,1.0 L 3.0,1.0 L 3.0,0.0 z" />
+<path fill-rule="evenodd" fill="#6C9966" stroke="#000000" stroke-width="2.0" opacity="0.5" d="M 4.0,0.0 L 5.0,0.0 L 5.0,1.0 L 4.0,1.0 L 4.0,0.0 z" />
+<path fill-rule="evenodd" fill="#D9261E" stroke="#000000" stroke-width="2.0" opacity="0.5" d="M 5.0,0.0 L 6.0,0.0 L 6.0,1.0 L 5.0,1.0 L 5.0,0.0 z" />
+<path fill-rule="evenodd" fill="#AF5C6C" stroke="#000000" stroke-width="2.0" opacity="0.5" d="M 6.0,0.0 L 7.0,0.0 L 7.0,1.0 L 6.0,1.0 L 6.0,0.0 z" />
+<path fill-rule="evenodd" fill="#27055F" stroke="#000000" stroke-width="2.0" opacity="0.5" d="M 7.0,0.0 L 8.0,0.0 L 8.0,1.0 L 7.0,1.0 L 7.0,0.0 z" />
+<path fill-rule="evenodd" fill="#541712" stroke="#000000" stroke-width="2.0" opacity="0.5" d="M 8.0,0.0 L 9.0,0.0 L 9.0,1.0 L 8.0,1.0 L 8.0,0.0 z" />
+<path fill-rule="evenodd" fill="#8F01B2" stroke="#000000" stroke-width="2.0" opacity="0.5" d="M 9.0,0.0 L 10.0,0.0 L 10.0,1.0 L 9.0,1.0 L 9.0,0.0 z" /></svg>
