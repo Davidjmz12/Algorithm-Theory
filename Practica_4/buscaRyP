@@ -3,8 +3,8 @@
 # Check if there are at least three arguments
 if [ "$#" -lt 2 ]   
 then
-    echo "Usage: $0 [-r|-i] <input_file> <output_file>"
+    echo "Usage: $0 <input_file> <output_file>"
     exit 1
 fi
 
-python3 src/searchBaP.py "$1" "$2"
+python3 src/searchRyP.py "$1" "$2"
