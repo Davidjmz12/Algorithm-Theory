@@ -11,6 +11,7 @@ from os import mkdir
 from shutil import rmtree
 from sys import argv
 from linearP import linearP
+from branch import branch
 from variables import file_to_variables
 import time
 
@@ -28,12 +29,11 @@ def main(file1,file2):
         for i,variable in enumerate(variables):
             now = time.time()
 
-            size, str_art =  linearP(variable)
+            size,_ =  branch(variable)
             
             time_elapsed = 1000*(time.time() - now)
             
-            w_f.write(f"{size} {time_elapsed} \n {str_art} \n")
+            w_f.write(f"{size} {time_elapsed} \n")
             variable.write_svg("svg/_"+str(i)+".svg")
         
 main("test2.txt","result.txt")
-    

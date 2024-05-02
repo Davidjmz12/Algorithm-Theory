@@ -9,7 +9,7 @@
 import random
 from article import Article
 from solution import Solution
-from functools import cache
+from functools import cache,reduce
 
 def file_to_variables(file_name):
     """
@@ -138,6 +138,9 @@ class Variables:
 
         """
         return self.page.area
+    
+    def area_articles(self,article_ids):
+        return sum([self.list_art[i].area for i in article_ids])
 
     def sort_articles(self,_reverse=False):
         
@@ -146,4 +149,15 @@ class Variables:
 
     def to_file(self,solution) -> str:
         return "".join([self.list_art[ind].to_file() for ind in solution.indexes])
-    
+
+    def bound(self, solution):
+        """
+        Pre: solution contains our current solution
+        Post: If non of the remaining articles fit in the paper given our current solution, returns the area of our current solution.
+        Otherwise, returns the sum of the area of our current solution and the area of the union of the remaining articles that fit
+        in our current solution.
+        
+        """
+        articles_not_pol = [self.list_art[i].polygon for i in range(0,self.n) if (i not in solution.indexes and self.article_fits(i,solution))]
+        return solution.totalArea if len(articles_not_pol) == 0 else reduce(lambda x,y:x.union(y),articles_not_pol).area + solution.totalArea
+        

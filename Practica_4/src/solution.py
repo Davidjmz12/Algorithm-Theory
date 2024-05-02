@@ -41,8 +41,17 @@ class Solution:
         """
         return self.totalArea < other.totalArea
 
-    def last(self):
-        return self.indexes[-1]
+    @property
+    def next(self):
+        """
+        Pre: True
+        Post: Returns the next index of our solution
+        
+        """
+        if len(self.indexes) == 0:
+            return 0
+        else:
+            return self.indexes[-1]+1
     
     def __str__(self):
         return f"Indexes: {self.indexes}, Area: {self.totalArea}"

@@ -6,8 +6,10 @@
 ##############################################################################################################
 from solution import Solution
 from variables import Variables
+import os
+import sys
 
-from pulp import LpProblem, LpMaximize, LpBinary, LpVariable, lpSum, lpDot
+from pulp import LpProblem, LpMaximize, LpBinary, LpVariable, lpSum, lpDot, PULP_CBC_CMD
 
 
 def create_intersection_matrix(variable: Variables):
@@ -18,6 +20,7 @@ def linearP(variable: Variables):
     """
     
     """
+    
     
     c_ij = create_intersection_matrix(variable)
 
@@ -41,9 +44,14 @@ def linearP(variable: Variables):
             model += (y_ij[i][j] <= y_i[j],f"prod2_{i}{j}")
             model += (y_ij[i][j] >= y_i[j] + y_i[i] - 1,f"prod3_{i}{j}")
 
-    model.solve()
+    model.solve(PULP_CBC_CMD(msg=0))
     
-    print(model)
-   
-   
-    return 1,2
+    index_y = [i for i in range(len(model.variables())) if model.variables()[i].name[0] == "y"]
+
+    var_y = [model.variables()[i] for i in index_y]
+    var_y.sort(key=lambda x:x.name)
+    
+    index_sol = [i for i in range(len(var_y)) if var_y[i].varValue == 1]
+
+    
+    return variable.area_articles(index_sol),0
